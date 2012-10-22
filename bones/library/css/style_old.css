@@ -1,3 +1,5 @@
+/* Saving the original stylesheet */
+
 /******************************************************************
 Site Name:
 Author:
@@ -999,15 +1001,44 @@ easily just write on group of styles for
 the navs on the site and our css is cleaner
 and moe scalable.
 */
+.nav {
+  border: 1px solid #ccc;
+  border-bottom: 0;
+  /* end .menu li */
 
-section nav ul li a, header nav ul li a { font-size:24px; letter-spacing:1px; text-decoration:none; color:#434343; font-family: 'Open Sans', sans-serif; }
-section nav, footer { text-align:center; }
-section nav ul, footer nav ul, header nav ul { list-style:none; }
-section nav ul li, header nav ul li { display:block; }
-footer nav ul li { display:block; margin:0 1px; }
-footer nav ul li:after { content:"|"; margin-left:5px; }
-footer nav ul li:last-child:after { content:""; }
+  /* highlight current page */
 
+  /* end current highlighters */
+
+}
+.nav li {
+  /*
+		so you really have to rethink your dropdowns for mobile.
+		you don't want to have it expand too much because the
+		screen is so small. How you manage your menu should
+		depend on the project. Here's some great info on it:
+		http://www.alistapart.com/articles/organizing-mobile/
+		*/
+
+}
+.nav li a {
+  display: block;
+  text-decoration: none;
+  padding: 10px 10px;
+  background-color: #eee;
+  border-bottom: 1px solid #ccc;
+  /*
+			remember this is for mobile ONLY, so there's no need
+			to even declare hover styles here, you can do it in
+			the style.scss file where it's relevant. We want to
+			keep this file as small as possible!
+			*/
+
+}
+.nav li ul.sub-menu li a,
+.nav li ul.children li a {
+  padding-left: 30px;
+}
 /* end .nav */
 /*********************
 POSTS & CONTENT STYLES
@@ -1388,12 +1419,33 @@ tweeners.
   /*********************
   NAVIGATION STYLES
   *********************/
+  /* .menu is clearfixed inside mixins.scss */
+  .menu {
+    /* end .menu ul */
   
-section nav ul li, header nav ul li { display:inline; margin:0 30px; }
-footer nav ul li { display:inline; margin:0 1px; }
-footer nav ul li:after { content:"|"; margin-left:5px; }
-footer nav ul li:last-child:after { content:""; }
+  }
+  .menu ul {
+    /* end .menu ul li */
   
+    /* highlight current page */
+  
+    /* end current highlighters */
+  
+  }
+  .menu ul li {
+    /*
+  				plan your menus and drop-downs wisely.
+  				*/
+  
+  }
+  .menu ul li a {
+    /*
+  					you can use hover styles here even though this size
+  					has the possibility of being a mobile device.
+  					*/
+  
+  }
+  /* end .menu */
   /*********************
   POSTS & CONTENT STYLES
   *********************/
@@ -1466,11 +1518,75 @@ you can add resource intensive styles.
   /*********************
   NAVIGATION STYLES
   *********************/
-section nav ul li, header nav ul li { display:inline; margin:0 30px; }
-footer nav ul li { display:inline; margin:0 1px; }
-footer nav ul li:after { content:"|"; margin-left:5px; }
-footer nav ul li:last-child:after { content:""; }
-
+  .nav {
+    background: #eee;
+    border: 0;
+    /* end .menu ul li */
+  
+    /* highlight current page */
+  
+    /* end current highlighters */
+  
+  }
+  .nav li {
+    float: left;
+    position: relative;
+    /*
+  		plan your menus and drop-downs wisely.
+  		*/
+  
+    /* showing sub-menus */
+  
+  }
+  .nav li a {
+    border-bottom: 0;
+    /*
+  			you can use hover styles here even though this size
+  			has the possibility of being a mobile device.
+  			*/
+  
+  }
+  .nav li a:hover,
+  .nav li a:focus {
+    background-color: #dedede;
+  }
+  .nav li ul.sub-menu,
+  .nav li ul.children {
+    width: 200px;
+    border: 1px solid #ccc;
+    border-top: 0;
+    position: absolute;
+    display: none;
+    z-index: 8999;
+    /* highlight sub-menu current page */
+  
+  }
+  .nav li ul.sub-menu li,
+  .nav li ul.children li {
+    /*
+  				if you need to go deeper, go nuts
+  				just remember deeper menus suck
+  				for usability. k, bai.
+  				*/
+  
+  }
+  .nav li ul.sub-menu li a,
+  .nav li ul.children li a {
+    padding-left: 10px;
+    border-right: 0;
+    display: block;
+    width: 180px;
+    border-bottom: 1px solid #ccc;
+  }
+  .nav li ul.sub-menu li:last-child a,
+  .nav li ul.children li:last-child a {
+    border-bottom: 0;
+  }
+  .nav li:hover ul {
+    top: auto;
+    display: block;
+  }
+  /* end .nav */
   /*********************
   SIDEBARS & ASIDES
   *********************/
