@@ -6,7 +6,7 @@
 <!--[if gt IE 8]><!--> <html <?php language_attributes(); ?> class="no-js"><!--<![endif]-->
 	
 	<head>
-		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		
 		<title><?php wp_title(''); ?></title>
 		
@@ -20,12 +20,29 @@
 		
 		<!-- icons & favicons (for more: http://themble.com/support/adding-icons-favicons/) -->
 		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
-				
   		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 		
 		<!-- wordpress head functions -->
 		<?php wp_head(); ?>
 		<!-- end of wordpress head -->
+		
+		<!-- Styles -->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/style.css" />
+		
+		<!-- Scripts -->
+		<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js?ver=1.3.2'></script>
+        <script type='text/javascript' src="<?php echo get_template_directory_uri(); ?>/js/jcarousellite_1.0.1.min.js"></script>
+		<script>
+			$(function() {
+				$("#slider").jCarouselLite({
+					auto: 4000,
+					speed: 1000,
+					circular: true,
+					visible: 5
+				});
+			});
+		</script>
 			
 		<!-- drop Google Analytics Here -->
 		<!-- end analytics -->
@@ -34,23 +51,14 @@
 	
 	<body <?php body_class(); ?>>
 	
-		<div id="container">
+		<!-- <div id="container"> -->
 			
-			<header class="header" role="banner">
-			
-				<div id="inner-header" class="wrap clearfix">
-					
-					<!-- to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> -->
-					<p id="logo" class="h1"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></p>
-					
-					<!-- if you'd like to use the site description you can un-comment it below -->
-					<?php // bloginfo('description'); ?>
-					
-					
-					<nav role="navigation">
-						<?php bones_main_nav(); ?>
-					</nav>
-				
-				</div> <!-- end #inner-header -->
-			
-			</header> <!-- end header -->
+		<header class="header" role="banner">
+			<h2><?php bloginfo('description'); ?></h2>
+            <h1><?php bloginfo('name'); ?></h1>
+			<?php if(!is_home()): ?>
+			<nav role="navigation">
+				<?php bones_main_nav(); ?>
+			</nav>
+			<?php endif; ?>
+		</header> <!-- end header -->
