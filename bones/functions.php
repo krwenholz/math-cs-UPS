@@ -162,4 +162,128 @@ function bones_wpsearch($form) {
 } // don't remove this bracket!
 
 
+/************* CUSTOM POST TYPE - FACULTY *****************/
+
+// Registers the new post type and taxonomy
+function cs_faculty_posttype() {
+    register_post_type( 'faculty',
+        array(
+            'labels' => array(
+                'name' => __( 'Faculty' ),
+                'singular_name' => __( 'Faculty' ),
+                'add_new' => __( 'Add New Faculty Member' ),
+                'add_new_item' => __( 'Add New Faculty Member' ),
+                'edit_item' => __( 'Edit Faculty Member' ),
+                'new_item' => __( 'Add New Faculty Member' ),
+                'view_item' => __( 'View Faculty Member' ),
+                'search_items' => __( 'Search Faculty Members' ),
+                'not_found' => __( 'No faculty members found' ),
+                'not_found_in_trash' => __( 'No faculty members found in trash' )
+            ),
+            'public' => true,
+            'supports' => array( 'custom-fields' ),
+            'capability_type' => 'post',
+            'rewrite' => array("slug" => "faculty"), // Permalinks format
+            'menu_position' => 5,
+            'register_meta_box_cb' => 'add_faculty_metaboxes'
+        )
+    );
+}
+add_action( 'init', 'cs_faculty_posttype' );
+
+// Add the Faculty Meta Boxes
+function add_faculty_metaboxes() {
+    add_meta_box('cs_faculty_data', 'Faculty Member Info', 'cs_faculty_data', 'faculty', 'normal', 'high');
+}
+
+// The Faculty Name Metabox
+function cs_faculty_data() {
+    global $post;
+    // Noncename needed to verify where the data originated
+    echo '<input type="hidden" name="facultymeta_noncename" id="facultymeta_noncename" value="' .
+    wp_create_nonce( plugin_basename(__FILE__) ) . '" />';
+    // Get the name data if its already been entered
+    $fac_name = get_post_meta($post->ID, '_name', true);
+	$fac_url = get_post_meta($post->ID, '_url', true);
+	$fac_email = get_post_meta($post->ID, '_email', true);
+	$fac_cat = get_post_meta($post->ID, '_category', true);
+    // Echo out the fields
+    echo '<p>Name:</p>';
+	echo '<input type="text" name="_name" value="' . $fac_name  . '" class="widefat" />';
+	echo '<p>URL:</p>';
+	echo '<input type="text" name="_url" value="' . $fac_url  . '" class="widefat" />';
+	echo '<p>Email:</p>';
+	echo '<input type="text" name="_email" value="' . $fac_email  . '" class="widefat" />';
+	echo '<p>Category:</p>';
+	echo '<input type="radio" name="_category" value="math" ' . (($fac_cat == 'math')? 'checked="checked"' : '') . '/> Mathematics<br />';
+	echo '<input type="radio" name="_category" value="cs" ' . (($fac_cat == 'cs')? 'checked="checked"' : '') . '/> Computer Science<br />';
+	echo '<input type="radio" name="_category" value="cs-math" ' . (($fac_cat == 'cs-math')? 'checked="checked"' : '') . '/> Mathematics & Computer Science<br />';
+}
+
+// Save the Metabox Data
+function wpt_save_faculty_meta($post_id, $post) {
+    // verify this came from the our screen and with proper authorization,
+    // because save_post can be triggered at other times
+    if ( !wp_verify_nonce( $_POST['facultymeta_noncename'], plugin_basename(__FILE__) )) {
+    return $post->ID;
+    }
+    // Is the user allowed to edit the post or page?
+    if ( !current_user_can( 'edit_post', $post->ID ))
+        return $post->ID;
+    // OK, we're authenticated: we need to find and save the data
+    // We'll put it into an array to make it easier to loop though.
+    $events_meta['_name'] = $_POST['_name'];
+	$events_meta['_url'] = $_POST['_url'];
+	$events_meta['_email'] = $_POST['_email'];
+	$events_meta['_category'] = $_POST['_category'];
+    // Add values of $events_meta as custom fields
+    foreach ($events_meta as $key => $value) { // Cycle through the $events_meta array!
+        if( $post->post_type == 'revision' ) return; // Don't store custom data twice
+        $value = implode(',', (array)$value); // If $value is an array, make it a CSV (unlikely)
+        if(get_post_meta($post->ID, $key, FALSE)) { // If the custom field already has a value
+            update_post_meta($post->ID, $key, $value);
+        } else { // If the custom field doesn't have a value
+            add_post_meta($post->ID, $key, $value);
+        }
+        if(!$value) delete_post_meta($post->ID, $key); // Delete if blank
+    }
+}
+add_action('save_post', 'wpt_save_faculty_meta', 1, 2); // save the custom fields
+
+// Change the columns for the edit Faculty screen
+function change_columns( $cols ) {
+  $cols = array(
+    'cb'       => '<input type="checkbox" />',
+    'name'      => __( 'Name',      'trans' ),
+	'url'      => __( 'URL',      'trans' ),
+    'email' => __( 'Email', 'trans' ),
+    'category'     => __( 'Category', 'trans' ),
+  );
+  return $cols;
+}
+add_filter( "manage_faculty_posts_columns", "change_columns" );
+
+function custom_columns( $column, $post_id ) {
+  switch ( $column ) {
+    case "name":
+      $fac_name = get_post_meta( $post_id, '_name', true);
+	  $edit_link = get_edit_post_link($post_id);
+	  echo '<a href="' . $edit_link . '">' . $fac_name . '</a>';
+      break;
+	case "url":
+      $col_url = get_post_meta( $post_id, '_url', true);
+      echo '<a href="' . $col_url . '">' . $col_url. '</a>';
+      break;
+    case "email":
+      $col_email = get_post_meta( $post_id, '_email', true);
+      echo '<a href="mailto:' . $col_email . '">' . $col_email. '</a>';
+      break;
+    case "category":
+	  echo get_post_meta( $post_id, '_category', true);
+      break;
+  }
+}
+
+add_action( "manage_posts_custom_column", "custom_columns", 10, 2 );
+
 ?>
