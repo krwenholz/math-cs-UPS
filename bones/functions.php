@@ -203,13 +203,16 @@ function cs_faculty_data() {
     echo '<input type="hidden" name="facultymeta_noncename" id="facultymeta_noncename" value="' .
     wp_create_nonce( plugin_basename(__FILE__) ) . '" />';
     // Get the name data if its already been entered
-    $fac_name = get_post_meta($post->ID, '_name', true);
+    $fac_fname = get_post_meta($post->ID, '_fname', true);
+	$fac_lname = get_post_meta($post->ID, '_lname', true);
 	$fac_url = get_post_meta($post->ID, '_url', true);
 	$fac_email = get_post_meta($post->ID, '_email', true);
 	$fac_cat = get_post_meta($post->ID, '_category', true);
     // Echo out the fields
-    echo '<p>Name:</p>';
-	echo '<input type="text" name="_name" value="' . $fac_name  . '" class="widefat" />';
+    echo '<p>First Name:</p>';
+	echo '<input type="text" name="_fname" value="' . $fac_fname  . '" class="widefat" />';
+	echo '<p>Last Name: <em>(faculty will be sorted by this)</em></p>';
+	echo '<input type="text" name="_lname" value="' . $fac_lname  . '" class="widefat" />';
 	echo '<p>URL:</p>';
 	echo '<input type="text" name="_url" value="' . $fac_url  . '" class="widefat" />';
 	echo '<p>Email:</p>';
@@ -232,12 +235,13 @@ function wpt_save_faculty_meta($post_id, $post) {
         return $post->ID;
     // OK, we're authenticated: we need to find and save the data
     // We'll put it into an array to make it easier to loop though.
-    $events_meta['_name'] = $_POST['_name'];
-	$events_meta['_url'] = $_POST['_url'];
-	$events_meta['_email'] = $_POST['_email'];
-	$events_meta['_category'] = $_POST['_category'];
-    // Add values of $events_meta as custom fields
-    foreach ($events_meta as $key => $value) { // Cycle through the $events_meta array!
+    $faculty_meta['_fname'] = $_POST['_fname'];
+	$faculty_meta['_lname'] = $_POST['_lname'];
+	$faculty_meta['_url'] = $_POST['_url'];
+	$faculty_meta['_email'] = $_POST['_email'];
+	$faculty_meta['_category'] = $_POST['_category'];
+    // Add values of $faculty_meta as custom fields
+    foreach ($faculty_meta as $key => $value) { // Cycle through the $faculty_meta array!
         if( $post->post_type == 'revision' ) return; // Don't store custom data twice
         $value = implode(',', (array)$value); // If $value is an array, make it a CSV (unlikely)
         if(get_post_meta($post->ID, $key, FALSE)) { // If the custom field already has a value
@@ -269,6 +273,10 @@ function custom_columns( $column, $post_id ) {
       $fac_name = get_post_meta( $post_id, '_name', true);
 	  $edit_link = get_edit_post_link($post_id);
 	  echo '<a href="' . $edit_link . '">' . $fac_name . '</a>';
+      $fac_fname = get_post_meta( $post_id, '_fname', true);
+	  $fac_lname = get_post_meta( $post_id, '_lname', true);
+	  $edit_link = get_edit_post_link($post_id);
+	  echo '<a href="' . $edit_link . '">' . $fac_fname . ' ' . $fac_lname . '</a>';
       break;
 	case "url":
       $col_url = get_post_meta( $post_id, '_url', true);

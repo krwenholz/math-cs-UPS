@@ -14,12 +14,12 @@ Template Name: Faculty Page
 	</div>
 	<div class="prof-list">
 	<?php
-    $mypost = array( 'post_type' => 'faculty', );
+    $mypost = array( 'post_type' => 'faculty', 'meta_key'=>'_lname', 'orderby' => 'meta_value', 'order' => 'ASC' );
     $loop = new WP_Query( $mypost );
     ?>
     <?php while ( $loop->have_posts() ) : $loop->the_post();?>
 		<span class="prof" data-type="<?php echo get_post_meta( get_the_ID(), '_category', true ); ?>" data-id="prof-<?php the_ID(); ?>">
-			<h2><?php echo get_post_meta( get_the_ID(), '_name', true ); ?></h2>
+			<h2><?php echo get_post_meta( get_the_ID(), '_fname', true ); ?> <?php echo get_post_meta( get_the_ID(), '_lname', true ); ?></h2>
 			<a href="mailto:<?php echo get_post_meta( get_the_ID(), '_email', true ); ?>">Email</a>
 			<a href="<?php echo get_post_meta( get_the_ID(), '_url', true ); ?>">Website</a>
 		</span>
