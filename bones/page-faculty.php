@@ -1,0 +1,30 @@
+<?php
+/*
+Template Name: Faculty Page
+*/
+?>
+
+<?php get_header(); ?>
+<section id="page-content">
+	<div class="prof-filter">
+		<a href="#" name="all" onclick="return false;">All</a>
+		<a href="#" name="cs" onclick="return false;">Computer Science</a>
+		<a href="#" name="math" onclick="return false;">Math</a>
+		<a href="#" name="cs-math" onclick="return false;">Computer Science &amp; Math</a>
+	</div>
+	<div class="prof-list">
+	<?php
+    $mypost = array( 'post_type' => 'faculty', );
+    $loop = new WP_Query( $mypost );
+    ?>
+    <?php while ( $loop->have_posts() ) : $loop->the_post();?>
+		<span class="prof" data-type="<?php echo get_post_meta( get_the_ID(), '_category', true ); ?>" data-id="prof-<?php the_ID(); ?>">
+			<h2><?php echo get_post_meta( get_the_ID(), '_name', true ); ?></h2>
+			<a href="mailto:<?php echo get_post_meta( get_the_ID(), '_email', true ); ?>">Email</a>
+			<a href="<?php echo get_post_meta( get_the_ID(), '_url', true ); ?>">Website</a>
+		</span>
+    <?php endwhile; ?>
+	</div>
+</section>
+<?php wp_reset_query(); ?>
+<?php get_footer(); ?>

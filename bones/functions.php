@@ -206,7 +206,7 @@ function cs_faculty_data() {
     $fac_name = get_post_meta($post->ID, '_name', true);
 	$fac_url = get_post_meta($post->ID, '_url', true);
 	$fac_email = get_post_meta($post->ID, '_email', true);
-	$fac_cat = isset( $values['_category'] ) ? esc_attr( $values['_category'][0] ) : '';
+	$fac_cat = get_post_meta($post->ID, '_category', true);
     // Echo out the fields
     echo '<p>Name:</p>';
 	echo '<input type="text" name="_name" value="' . $fac_name  . '" class="widefat" />';
@@ -215,9 +215,9 @@ function cs_faculty_data() {
 	echo '<p>Email:</p>';
 	echo '<input type="text" name="_email" value="' . $fac_email  . '" class="widefat" />';
 	echo '<p>Category:</p>';
-	echo '<input type="radio" name="_category" value="math" ' . $fac_cat . '/> Mathematics<br />';
-	echo '<input type="radio" name="_category" value="cs" ' . $fac_cat . '/> Computer Science<br />';
-	echo '<input type="radio" name="_category" value="cs-math" ' . $fac_cat . '/> Mathematics & Computer Science<br />';
+	echo '<input type="radio" name="_category" value="math" ' . (($fac_cat == 'math')? 'checked="checked"' : '') . '/> Mathematics<br />';
+	echo '<input type="radio" name="_category" value="cs" ' . (($fac_cat == 'cs')? 'checked="checked"' : '') . '/> Computer Science<br />';
+	echo '<input type="radio" name="_category" value="cs-math" ' . (($fac_cat == 'cs-math')? 'checked="checked"' : '') . '/> Mathematics & Computer Science<br />';
 }
 
 // Save the Metabox Data
@@ -266,7 +266,9 @@ add_filter( "manage_faculty_posts_columns", "change_columns" );
 function custom_columns( $column, $post_id ) {
   switch ( $column ) {
     case "name":
-      echo get_post_meta( $post_id, '_name', true);
+      $fac_name = get_post_meta( $post_id, '_name', true);
+	  $edit_link = get_edit_post_link($post_id);
+	  echo '<a href="' . $edit_link . '">' . $fac_name . '</a>';
       break;
 	case "url":
       $col_url = get_post_meta( $post_id, '_url', true);
