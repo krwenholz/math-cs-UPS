@@ -8,7 +8,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		
-		<title><?php wp_title(''); ?></title>
+		<title><?php is_front_page() ? bloginfo('description') : wp_title(''); ?> | <?php is_front_page() ? bloginfo('name') : bloginfo('description'); ?></title>
 		
 		<!-- Google Chrome Frame for IE -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">

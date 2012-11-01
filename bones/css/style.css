@@ -44,4 +44,5 @@ a:hover, a:visited:hover, a:focus, a:visited:focus { color:#800000; }
 .prof-filter {text-align:center; padding:10px 0;}
 .prof-list {text-align:center;}
 .prof {width:250px; height:58px; display:inline-block; text-align:center; /*padding:20px 0;*/ border:1px solid black; margin:5px; border-radius:25px; box-shadow:0 0 10px black;}
-.prof h2 { font-family:Georgia, serif; }
+.prof h2 { font-family:Georgia, serif; color:#000; }
+.profButton { margin-bottom:10px; text-decoration:none; border:1px solid #dedede; border-right:1px solid #bbb; border-bottom:1px solid #bfbfbf; padding:5px 10px 6px 10px; cursor:pointer; font-size:15px; line-height:130%; color:#fff; -webkit-border-radius:11px; -moz-border-radius:11px; border-radius:11px; display:inline-block; overflow:visible; width:auto; background:#32797A; }
