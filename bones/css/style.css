@@ -43,4 +43,5 @@ a:hover, a:visited:hover, a:focus, a:visited:focus { color:#800000; }
 /* Faculty Page */
 .prof-filter {text-align:center; padding:10px 0;}
 .prof-list {text-align:center;}
-.prof {width:250px; display:inline-block; text-align:center; padding:20px 0; border:1px solid black; margin:5px; border-radius:25px; box-shadow:0 0 10px black;}
+.prof {width:250px; height:58px; display:inline-block; text-align:center; /*padding:20px 0;*/ border:1px solid black; margin:5px; border-radius:25px; box-shadow:0 0 10px black;}
+.prof h2 { font-family:Georgia, serif; }
