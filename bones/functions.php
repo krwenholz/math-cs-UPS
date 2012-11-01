@@ -211,16 +211,16 @@ function cs_faculty_data() {
     // Echo out the fields
     echo '<p>First Name:</p>';
 	echo '<input type="text" name="_fname" value="' . $fac_fname  . '" class="widefat" />';
-	echo '<p>Last Name: <em>(faculty will be sorted by this)</em></p>';
+	echo '<p>Last Name:</p>';
 	echo '<input type="text" name="_lname" value="' . $fac_lname  . '" class="widefat" />';
 	echo '<p>URL:</p>';
 	echo '<input type="text" name="_url" value="' . $fac_url  . '" class="widefat" />';
 	echo '<p>Email:</p>';
 	echo '<input type="text" name="_email" value="' . $fac_email  . '" class="widefat" />';
 	echo '<p>Category:</p>';
-	echo '<input type="radio" name="_category" value="math" ' . (($fac_cat == 'math')? 'checked="checked"' : '') . '/> Mathematics<br />';
-	echo '<input type="radio" name="_category" value="cs" ' . (($fac_cat == 'cs')? 'checked="checked"' : '') . '/> Computer Science<br />';
-	echo '<input type="radio" name="_category" value="cs-math" ' . (($fac_cat == 'cs-math')? 'checked="checked"' : '') . '/> Mathematics & Computer Science<br />';
+	echo '<input type="radio" name="_category" value="math" ' . (($fac_cat == 'math') ? 'checked="checked"' : '') . '/> Mathematics<br />';
+	echo '<input type="radio" name="_category" value="cs" ' . (($fac_cat == 'cs') ? 'checked="checked"' : '') . '/> Computer Science<br />';
+	echo '<input type="radio" name="_category" value="cs-math" ' . (($fac_cat == 'cs-math') ? 'checked="checked"' : '') . '/> Mathematics & Computer Science<br />';
 }
 
 // Save the Metabox Data
@@ -235,13 +235,13 @@ function wpt_save_faculty_meta($post_id, $post) {
         return $post->ID;
     // OK, we're authenticated: we need to find and save the data
     // We'll put it into an array to make it easier to loop though.
-    $faculty_meta['_fname'] = $_POST['_fname'];
-	$faculty_meta['_lname'] = $_POST['_lname'];
-	$faculty_meta['_url'] = $_POST['_url'];
-	$faculty_meta['_email'] = $_POST['_email'];
-	$faculty_meta['_category'] = $_POST['_category'];
-    // Add values of $faculty_meta as custom fields
-    foreach ($faculty_meta as $key => $value) { // Cycle through the $faculty_meta array!
+    $fac_meta['_fname'] = $_POST['_fname'];
+	$fac_meta['_lname'] = $_POST['_lname'];
+	$fac_meta['_url'] = $_POST['_url'];
+	$fac_meta['_email'] = $_POST['_email'];
+	$fac_meta['_category'] = $_POST['_category'];
+    // Add values of $fac_meta as custom fields
+    foreach ($fac_meta as $key => $value) { // Cycle through the $fac_meta array!
         if( $post->post_type == 'revision' ) return; // Don't store custom data twice
         $value = implode(',', (array)$value); // If $value is an array, make it a CSV (unlikely)
         if(get_post_meta($post->ID, $key, FALSE)) { // If the custom field already has a value
@@ -255,7 +255,7 @@ function wpt_save_faculty_meta($post_id, $post) {
 add_action('save_post', 'wpt_save_faculty_meta', 1, 2); // save the custom fields
 
 // Change the columns for the edit Faculty screen
-function change_columns( $cols ) {
+function fac_change_columns( $cols ) {
   $cols = array(
     'cb'       => '<input type="checkbox" />',
     'name'      => __( 'Name',      'trans' ),
@@ -265,18 +265,14 @@ function change_columns( $cols ) {
   );
   return $cols;
 }
-add_filter( "manage_faculty_posts_columns", "change_columns" );
+add_filter( "manage_faculty_posts_columns", "fac_change_columns" );
 
-function custom_columns( $column, $post_id ) {
+function fac_custom_columns( $column, $post_id ) {
   switch ( $column ) {
     case "name":
-      $fac_name = get_post_meta( $post_id, '_name', true);
-	  $edit_link = get_edit_post_link($post_id);
-	  echo '<a href="' . $edit_link . '">' . $fac_name . '</a>';
-      $fac_fname = get_post_meta( $post_id, '_fname', true);
-	  $fac_lname = get_post_meta( $post_id, '_lname', true);
-	  $edit_link = get_edit_post_link($post_id);
-	  echo '<a href="' . $edit_link . '">' . $fac_fname . ' ' . $fac_lname . '</a>';
+      $col_fname = get_post_meta( $post_id, '_fname', true);
+	  $col_lname = get_post_meta( $post_id, '_lname', true);
+	  echo '<a href="' . get_edit_post_link($post_id) . '">' . $col_fname . ' ' . $col_lname . '</a>';
       break;
 	case "url":
       $col_url = get_post_meta( $post_id, '_url', true);
@@ -292,6 +288,121 @@ function custom_columns( $column, $post_id ) {
   }
 }
 
-add_action( "manage_posts_custom_column", "custom_columns", 10, 2 );
+add_action( "manage_posts_custom_column", "fac_custom_columns", 10, 2 );
+
+/************* CUSTOM POST TYPE - SEMINAR *****************/
+
+// Registers the new post type and taxonomy
+function cs_seminar_posttype() {
+    register_post_type( 'seminar',
+        array(
+            'labels' => array(
+                'name' => __( 'Seminar' ),
+                'singular_name' => __( 'Seminar' ),
+                'add_new' => __( 'Add New Seminar' ),
+                'add_new_item' => __( 'Add New Seminar' ),
+                'edit_item' => __( 'Edit Seminar' ),
+                'new_item' => __( 'Add New Seminar' ),
+                'view_item' => __( 'View Seminar' ),
+                'search_items' => __( 'Search Seminars' ),
+                'not_found' => __( 'No seminars found' ),
+                'not_found_in_trash' => __( 'No seminars found in trash' )
+            ),
+            'public' => true,
+            'supports' => array( 'title', 'editor', 'custom-fields' ),
+            'capability_type' => 'post',
+            'rewrite' => array("slug" => "seminar"), // Permalinks format
+            'menu_position' => 5,
+            'register_meta_box_cb' => 'add_seminar_metaboxes'
+        )
+    );
+}
+add_action( 'init', 'cs_seminar_posttype' );
+
+// Add the Seminar Meta Boxes
+function add_seminar_metaboxes() {
+    add_meta_box('cs_seminar_data', 'Seminar Info', 'cs_seminar_data', 'seminar', 'normal', 'high');
+}
+
+// The Seminar Name Metabox
+function cs_seminar_data() {
+    global $post;
+    // Noncename needed to verify where the data originated
+    echo '<input type="hidden" name="seminarmeta_noncename" id="seminarmeta_noncename" value="' .
+    wp_create_nonce( plugin_basename(__FILE__) ) . '" />';
+    // Get the name data if its already been entered
+    $sem_date = get_post_meta($post->ID, '_semdate', true);
+	$sem_start_time = get_post_meta($post->ID, '_semtime', true);
+	$sem_pres = get_post_meta($post->ID, '_sempres', true);
+	$sem_loc = get_post_meta($post->ID, '_semloc', true);
+    // Echo out the fields
+    echo '<p>Date:</p>';
+	echo '<input type="text" name="_semdate" value="' . $sem_date  . '" class="widefat" />';
+	echo '<p>Start Time:</p>';
+	echo '<input type="text" name="_semtime" value="' . $sem_start_time  . '" class="widefat" />';
+	echo '<p>Presenter:</p>';
+	echo '<input type="text" name="_sempres" value="' . $sem_pres  . '" class="widefat" />';
+	echo '<p>Location:</p>';
+	echo '<input type="text" name="_semloc" value="' . $sem_loc  . '" class="widefat" />';
+}
+
+// Save the Metabox Data
+function wpt_save_seminar_meta($post_id, $post) {
+    // verify this came from the our screen and with proper authorization,
+    // because save_post can be triggered at other times
+    if ( !wp_verify_nonce( $_POST['seminarmeta_noncename'], plugin_basename(__FILE__) )) {
+    return $post->ID;
+    }
+    // Is the user allowed to edit the post or page?
+    if ( !current_user_can( 'edit_post', $post->ID ))
+        return $post->ID;
+    // OK, we're authenticated: we need to find and save the data
+    // We'll put it into an array to make it easier to loop though.
+    $sem_meta['_semdate'] = $_POST['_semdate'];
+	$sem_meta['_semtime'] = $_POST['_semtime'];
+	$sem_meta['_sempres'] = $_POST['_sempres'];
+	$sem_meta['_semloc'] = $_POST['_semloc'];
+    // Add values of $sem_meta as custom fields
+    foreach ($sem_meta as $key => $value) { // Cycle through the $sem_meta array!
+        if( $post->post_type == 'revision' ) return; // Don't store custom data twice
+        $value = implode(',', (array)$value); // If $value is an array, make it a CSV (unlikely)
+        if(get_post_meta($post->ID, $key, FALSE)) { // If the custom field already has a value
+            update_post_meta($post->ID, $key, $value);
+        } else { // If the custom field doesn't have a value
+            add_post_meta($post->ID, $key, $value);
+        }
+        if(!$value) delete_post_meta($post->ID, $key); // Delete if blank
+    }
+}
+add_action('save_post', 'wpt_save_seminar_meta', 1, 2); // save the custom fields
+
+// Change the columns for the edit Faculty screen
+function sem_change_columns( $cols ) {
+  $cols = array(
+    'cb'        => '<input type="checkbox" />',
+    'title'     => __( 'Seminar Title',      'trans' ),
+	'semdate'   => __( 'Seminar Date',      'trans' ),
+    'presenter' => __( 'Seminar Presenter', 'trans' ),
+  );
+  return $cols;
+}
+add_filter( "manage_seminar_posts_columns", "sem_change_columns" );
+
+function sem_custom_columns( $column, $post_id ) {
+  switch ( $column ) {
+    case "title":
+      $col_title = get_the_title($post_id);
+	  echo '<a href="' . get_edit_post_link($post_id) . '">' . $col_title . '</a>';
+      break;
+	case "semdate":
+      echo get_post_meta( $post_id, '_semdate', true);
+      break;
+    case "presenter":
+      echo get_post_meta( $post_id, '_sempres', true);
+      break;
+  }
+}
+
+add_action( "manage_posts_custom_column", "sem_custom_columns", 10, 2 );
 
 ?>
