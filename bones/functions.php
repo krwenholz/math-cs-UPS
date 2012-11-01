@@ -210,9 +210,9 @@ function cs_faculty_data() {
 	$fac_cat = get_post_meta($post->ID, '_category', true);
     // Echo out the fields
     echo '<p>First Name:</p>';
-	echo '<input type="text" name="_name" value="' . $fac_fname  . '" class="widefat" />';
+	echo '<input type="text" name="_fname" value="' . $fac_fname  . '" class="widefat" />';
 	echo '<p>Last Name:</p>';
-	echo '<input type="text" name="_name" value="' . $fac_lname  . '" class="widefat" />';
+	echo '<input type="text" name="_lname" value="' . $fac_lname  . '" class="widefat" />';
 	echo '<p>URL:</p>';
 	echo '<input type="text" name="_url" value="' . $fac_url  . '" class="widefat" />';
 	echo '<p>Email:</p>';
