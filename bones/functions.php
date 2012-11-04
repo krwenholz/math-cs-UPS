@@ -336,11 +336,11 @@ function cs_seminar_data() {
 	$sem_pres = get_post_meta($post->ID, '_sempres', true);
 	$sem_loc = get_post_meta($post->ID, '_semloc', true);
     // Echo out the fields
-    echo '<p>Date:</p>';
+    echo '<p>Date (click field for date picker):</p>';
 	echo '<input type="text" name="_semdate" value="' . $sem_date  . '" class="widefat" />';
 	echo '<p>Start Time:</p>';
 	echo '<input type="text" name="_semtime" value="' . $sem_start_time  . '" class="widefat" />';
-	echo '<p>Presenter:</p>';
+	echo '<p>Presenter Name:</p>';
 	echo '<input type="text" name="_sempres" value="' . $sem_pres  . '" class="widefat" />';
 	echo '<p>Location:</p>';
 	echo '<input type="text" name="_semloc" value="' . $sem_loc  . '" class="widefat" />';
@@ -404,5 +404,38 @@ function sem_custom_columns( $column, $post_id ) {
 }
 
 add_action( "manage_posts_custom_column", "sem_custom_columns", 10, 2 );
+
+/**
+ * Adds a jQuery datepicker script to seminar pages.
+ * http://jqueryui.com/demos/datepicker/
+ */
+function seminar_jquery_datepicker() {
+	wp_enqueue_script(
+		'jquery-ui-datepicker',
+		get_bloginfo('template_directory') . '/jquery-ui-datepicker/jquery-ui-1.9.1.custom.min.js',
+		array('jquery')
+	);
+ 
+	wp_enqueue_script(
+		'date-picker',
+		get_bloginfo('template_directory') . '/jquery-ui-datepicker/date-picker.js',
+		array('jquery', 'jquery-ui-datepicker')
+	);
+}
+add_action('admin_print_scripts-post-new.php', 'seminar_jquery_datepicker');
+add_action('admin_print_scripts-post.php', 'seminar_jquery_datepicker');
+
+/**
+ * Adds CSS for the jQuery datepicker script to seminar pages.
+ * http://jqueryui.com/demos/datepicker/
+ */
+function seminar_jquery_datepicker_css() {
+	wp_enqueue_style(
+		'jquery-ui-datepicker',
+		get_bloginfo('template_directory') . '/jquery-ui-datepicker/css/smoothness/jquery-ui-1.9.1.custom.min.css'
+	);
+}
+add_action('admin_print_styles-post-new.php', 'seminar_jquery_datepicker_css');
+add_action('admin_print_styles-post.php', 'seminar_jquery_datepicker_css');
 
 ?>
