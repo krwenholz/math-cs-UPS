@@ -842,12 +842,9 @@ and will be used across all viewports.
 /*********************
 GENERAL STYLES
 *********************/
-body {
-  font-family: Georgia, serif;
-  font-size: 14px;
-  line-height: 1.5;
-  color: #565656;
-}
+*{ margin:0; padding:0; }
+html { height:100%; width:100%; background-color:#fff; background-image: -webkit-gradient(linear, left top, left bottom, from(#CFCFCF), to(#ffffff)); background-image: -webkit-linear-gradient(top, #CFCFCF, #ffffff); background-image:-moz-linear-gradient(top, #CFCFCF, #ffffff); background-image:-ms-linear-gradient(top, #CFCFCF, #ffffff); background-image:-o-linear-gradient(top, #CFCFCF, #ffffff); background-image:linear-gradient(to bottom, #CFCFCF, #ffffff); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#CFCFCF', endColorstr='#ffffff'); /*I hate IE*/ background-repeat:no-repeat; }
+body{ font:14px Georgia, serif; }
 /********************
 WORDPRESS BODY CLASSES
 style a page via class
@@ -897,22 +894,17 @@ LAYOUT & GRID STYLES
 /*********************
 LINK STYLES
 *********************/
-a,
+/*a,
 a:visited {
   color: #f01d4f;
-  /* on hover */
 
-  /* on click */
-
-  /* mobile tap color */
-
-}
-a:hover,
+}*/
+/*a:hover,
 a:visited:hover,
 a:focus,
 a:visited:focus {
   color: #d10e3c;
-}
+}*/
 a:link,
 a:visited:link {
   /*
@@ -986,9 +978,49 @@ h5,
   text-transform: uppercase;
   letter-spacing: 2px;
 }
+h1, h2, h3, h4, p { margin:0; }
+
 /*********************
 HEADER SYTLES
 *********************/
+
+/*********************
+CS SITE MOCKUP SYTLES
+*********************/
+
+/* Page Structure */
+header { padding:75px 0 20px 0; width:100%; text-align:center; }
+header#page-head { padding:20px 0; }
+#splash { min-height:400px; }
+#slider { width:100% !important; height:300px; margin-bottom:20px; overflow:hidden; }
+#page-content { min-height:600px; width:70%; margin:10px auto; }
+#news-pos { width:100%; height:100%; float:left; }
+#news { margin:0 auto; padding:45px 20px; position:relative; left:226px; height:100%; width:260px; opacity:0.8; background:#333; z-index:5; }
+.news-item { padding-bottom:20px; }
+footer { width:100%; margin-bottom:40px; }
+footer nav { margin-top:10px; }
+
+/* Typography */
+header h2 { letter-spacing:2px; color:#434343; font-family: 'Open Sans', sans-serif; font-weight:400; text-transform:uppercase; text-decoration:none; font-size:14px; }
+header h1 { letter-spacing: 4px; font-family: 'Open Sans', sans-serif; font-weight:600; text-transform:uppercase; font-size:18px; color:#000; }
+.page header h1 { border-bottom:1.5px inset #999; }
+section nav ul li a, header nav ul li a { font-size:24px; letter-spacing:1px; text-decoration:none; color:#434343; font-family: 'Open Sans', sans-serif; -webkit-transition:color 0.75s; -mos-transition:color 0.75s; -o-transition:color 0.75s; -ms-transition:color 0.75s; transition:color 0.75s; }
+section nav ul li a:hover, header nav ul li a:hover, section nav ul li a:focus, header nav ul li a:focus { color:#800000; }
+a , a:visited { color:#434343; }
+.news-item { color:#fff; font-size:16px; }
+.news-item .title { font-weight:bold; }
+.news-item .time { font-style:italic; }
+footer { color:#434343; font-family: 'Open Sans', sans-serif; }
+footer nav ul li a { text-decoration:none; color:#434343; }
+section nav, footer { text-align:center; }
+
+/* Faculty Page */
+.prof-filter {text-align:center; padding:10px 0;}
+.prof-list {text-align:center;}
+.prof {width:250px; height:auto; padding:5px; display:inline-block; text-align:center; /*padding:20px 0;*/ border:1px solid black; margin:5px; border-radius:25px; box-shadow:0 0 10px black;}
+.prof h2 { font-family:Georgia, serif; color:#000; }
+.profButton { margin-bottom:10px; text-decoration:none; border:1px solid #dedede; border-right:1px solid #bbb; border-bottom:1px solid #bfbfbf; padding:5px 10px 6px 10px; cursor:pointer; font-size:15px; line-height:130%; color:#fff; -webkit-border-radius:11px; -moz-border-radius:11px; border-radius:11px; display:inline-block; overflow:visible; width:auto; background:#32797A; }
+
 /*********************
 NAVIGATION STYLES
 *********************/
@@ -999,14 +1031,18 @@ easily just write on group of styles for
 the navs on the site and our css is cleaner
 and moe scalable.
 */
-
+header { padding:20px 0; }
+#news { left:35px; }
+.prof { width:100%; max-width:200px; }
 section nav ul li a, header nav ul li a { font-size:24px; letter-spacing:1px; text-decoration:none; color:#434343; font-family: 'Open Sans', sans-serif; }
 section nav, footer { text-align:center; }
 section nav ul, footer nav ul, header nav ul { list-style:none; }
-section nav ul li, header nav ul li { display:block; }
-footer nav ul li { display:block; margin:0 1px; }
-footer nav ul li:after { content:"|"; margin-left:5px; }
-footer nav ul li:last-child:after { content:""; }
+section nav ul li, header nav ul li { display: block; background: #CCC; border: 1px solid; margin: 5px 45px; }
+footer { background:#000; color:#fff; padding:10px 0; }
+footer nav ul li { display: inline-block; margin: 0 1px; width: 25%; }
+footer nav ul li a, footer nav ul li a:visited { color:#fff; text-decoration:underline; }
+/*footer nav ul li:after { content:"|"; margin-left:5px; }
+footer nav ul li:last-child:after { content:""; }*/
 
 /* end .nav */
 /*********************
@@ -1388,11 +1424,20 @@ tweeners.
   /*********************
   NAVIGATION STYLES
   *********************/
+header { padding:20px 0; }
+header h2 { font-size:18px; }
+header h1 { font-size:23px; }
+
+#news { left:90px; }
+.prof { width:250px; max-width:250px; }
   
-section nav ul li, header nav ul li { display:inline; margin:0 30px; }
-footer nav ul li { display:inline; margin:0 1px; }
-footer nav ul li:after { content:"|"; margin-left:5px; }
-footer nav ul li:last-child:after { content:""; }
+section nav ul li, header nav ul li { display: inline-block; background: #CCC; border: 1px solid; margin: 5px; width:40%; }
+footer nav ul li { display:block; margin:0 1px; }
+footer { background:#000; color:#fff; padding:10px 0; }
+footer nav ul li { display: inline-block; margin: 0 1px; width: 25%; }
+footer nav ul li a, footer nav ul li a:visited { color:#fff; text-decoration:underline; }
+/*footer nav ul li:after { content:"|"; margin-left:5px; }
+footer nav ul li:last-child:after { content:""; }*/
   
   /*********************
   POSTS & CONTENT STYLES
@@ -1466,8 +1511,15 @@ you can add resource intensive styles.
   /*********************
   NAVIGATION STYLES
   *********************/
-section nav ul li, header nav ul li { display:inline; margin:0 30px; }
-footer nav ul li { display:inline; margin:0 1px; }
+header { padding: 75px 0 20px 0; }
+header h2 { font-size:1.5em; }
+header h1 { font-size:2em; }
+#news { left:226px; }
+
+section nav ul li, header nav ul li { display:inline; margin:0 30px; background: transparent; border: 0; }
+footer { background:transparent; color:#434343; padding:0; }
+footer nav ul li { display:inline; margin:0 1px; width:auto; }
+footer nav ul li a, footer nav ul li a:visited { color:#434343; text-decoration:none; }
 footer nav ul li:after { content:"|"; margin-left:5px; }
 footer nav ul li:last-child:after { content:""; }
 
