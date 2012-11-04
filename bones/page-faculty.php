@@ -7,10 +7,10 @@ Template Name: Faculty Page
 <?php get_header(); ?>
 <section id="page-content">
 	<div class="prof-filter">
-		<a href="#" name="all" onclick="return false;">All</a>
-		<a href="#" name="cs" onclick="return false;">Computer Science</a>
-		<a href="#" name="math" onclick="return false;">Math</a>
-		<a href="#" name="cs-math" onclick="return false;">Computer Science &amp; Math</a>
+		<a href="#" name="all" class="profButton" onclick="return false;">All</a>
+		<a href="#" name="cs" class="profButton" onclick="return false;">Computer Science</a>
+		<a href="#" name="math" class="profButton" onclick="return false;">Math</a>
+		<a href="#" name="cs-math" class="profButton" onclick="return false;">Computer Science &amp; Math</a>
 	</div>
 	<div class="prof-list">
 	<?php
