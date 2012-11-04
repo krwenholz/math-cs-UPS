@@ -1021,6 +1021,8 @@ section nav, footer { text-align:center; }
 .prof h2 { font-family:Georgia, serif; color:#000; }
 .profButton { margin-bottom:10px; text-decoration:none; border:1px solid #dedede; border-right:1px solid #bbb; border-bottom:1px solid #bfbfbf; padding:5px 10px 6px 10px; cursor:pointer; font-size:15px; line-height:130%; color:#fff; -webkit-border-radius:11px; -moz-border-radius:11px; border-radius:11px; display:inline-block; overflow:visible; width:auto; background:#32797A; }
 
+#beta { border:1px solid; border-radius:50px; position:absolute; right:10px; top:10px; height:65px; width:65px; line-height:60px; font-size:30px; color:maroon; opacity:0.33; -webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); -ms-transform: rotate(-45deg); -o-transform: rotate(45deg); }
+
 /*********************
 NAVIGATION STYLES
 *********************/
@@ -1037,7 +1039,7 @@ header { padding:20px 0; }
 section nav ul li a, header nav ul li a { font-size:24px; letter-spacing:1px; text-decoration:none; color:#434343; font-family: 'Open Sans', sans-serif; }
 section nav, footer { text-align:center; }
 section nav ul, footer nav ul, header nav ul { list-style:none; }
-section nav ul li, header nav ul li { display: block; background: #CCC; border: 1px solid; margin: 5px 45px; }
+section nav ul li, header nav ul li { display: block; background: #CCC; border: 1px solid; margin: 5px 45px; border-radius: 25px; }
 footer { background:#000; color:#fff; padding:10px 0; }
 footer nav ul li { display: inline-block; margin: 0 1px; width: 25%; }
 footer nav ul li a, footer nav ul li a:visited { color:#fff; text-decoration:underline; }
@@ -1431,7 +1433,7 @@ header h1 { font-size:23px; }
 #news { left:90px; }
 .prof { width:250px; max-width:250px; }
   
-section nav ul li, header nav ul li { display: inline-block; background: #CCC; border: 1px solid; margin: 5px; width:40%; }
+section nav ul li, header nav ul li { display: inline-block; background: #CCC; border: 1px solid; margin: 5px; width:40%; border-radius: 25px; }
 footer nav ul li { display:block; margin:0 1px; }
 footer { background:#000; color:#fff; padding:10px 0; }
 footer nav ul li { display: inline-block; margin: 0 1px; width: 25%; }
@@ -1516,7 +1518,7 @@ header h2 { font-size:1.5em; }
 header h1 { font-size:2em; }
 #news { left:226px; }
 
-section nav ul li, header nav ul li { display:inline; margin:0 30px; background: transparent; border: 0; }
+section nav ul li, header nav ul li { display:inline; margin:0 30px; background: transparent; border: 0; border-radius:0; }
 footer { background:transparent; color:#434343; padding:0; }
 footer nav ul li { display:inline; margin:0 1px; width:auto; }
 footer nav ul li a, footer nav ul li a:visited { color:#434343; text-decoration:none; }
