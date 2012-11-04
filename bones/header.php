@@ -47,6 +47,10 @@
 		<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.quicksand.js"></script>
 		<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/prof-script.js"></script>
 		<?php endif; ?>
+		<?php if (is_page_template('page-seminars.php') ): ?>
+		<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.quicksand.js"></script>
+		<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/prof-script.js"></script>
+		<?php endif; ?>
 			
 		<!-- drop Google Analytics Here -->
 		<!-- end analytics -->
