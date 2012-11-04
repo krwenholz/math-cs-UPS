@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Faculty Page
+Template Name: Seminar Page
 */
 ?>
 
