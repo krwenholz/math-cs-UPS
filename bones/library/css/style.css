@@ -452,6 +452,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+td, th {padding:5px;}
 /******************************************************************
 CUSTOMIZED RESET VALUES
 I added these extra styles as a more personalized reset. Feel free
@@ -979,6 +980,7 @@ h5,
   letter-spacing: 2px;
 }
 h1, h2, h3, h4, p { margin:0; }
+h1, h2, h3, h4 { font-family: 'Open Sans', sans-serif; }
 
 /*********************
 HEADER SYTLES
@@ -1021,7 +1023,8 @@ section nav, footer { text-align:center; }
 .prof h2 { font-family:Georgia, serif; color:#000; }
 .profButton { margin-bottom:10px; text-decoration:none; border:1px solid #dedede; border-right:1px solid #bbb; border-bottom:1px solid #bfbfbf; padding:5px 10px 6px 10px; cursor:pointer; font-size:15px; line-height:130%; color:#fff; -webkit-border-radius:11px; -moz-border-radius:11px; border-radius:11px; display:inline-block; overflow:visible; width:auto; background:#32797A; }
 
-#beta { border:1px solid; border-radius:50px; position:absolute; right:10px; top:10px; height:65px; width:65px; line-height:60px; font-size:30px; color:maroon; opacity:0.33; -webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); -ms-transform: rotate(-45deg); -o-transform: rotate(45deg); }
+#beta { border:1px dashed; border-radius:50px; position:absolute; right:10px; top:10px; height:65px; width:65px; line-height:60px; font-size:30px; color:maroon; box-shadow: 0 0 15px maroon; opacity:0.33; -webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); -ms-transform: rotate(-45deg); -o-transform: rotate(45deg); }
+.seminars { padding: 10px; border: 1px solid black; margin: 15px 0; border-radius: 25px; box-shadow: 0 0 10px black; }
 
 /*********************
 NAVIGATION STYLES
@@ -1033,7 +1036,7 @@ easily just write on group of styles for
 the navs on the site and our css is cleaner
 and moe scalable.
 */
-header { padding:20px 0; }
+header { padding:60px 0 20px 0; }
 #news { left:35px; }
 .prof { width:100%; max-width:200px; }
 section nav ul li a, header nav ul li a { font-size:24px; letter-spacing:1px; text-decoration:none; color:#434343; font-family: 'Open Sans', sans-serif; }
@@ -1426,7 +1429,7 @@ tweeners.
   /*********************
   NAVIGATION STYLES
   *********************/
-header { padding:20px 0; }
+header { padding:60px 0 20px 0; }
 header h2 { font-size:18px; }
 header h1 { font-size:23px; }
 

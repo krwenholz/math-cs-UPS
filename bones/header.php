@@ -48,6 +48,11 @@
 		<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/prof-script.js"></script>
 		<?php endif; ?>
 		<?php if (is_page_template('page-seminars.php') ): ?>
+		<script>
+			$(function() {
+				$(".semToggle").click(function() {$(this).parent().children(".semDetails").slideToggle("fast");});
+			});
+		</script>
 		<?php endif; ?>
 			
 		<!-- drop Google Analytics Here -->

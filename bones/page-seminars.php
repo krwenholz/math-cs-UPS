@@ -15,9 +15,11 @@ Template Name: Seminar Page
         <div class="seminars">
             <h2><?php echo get_the_title(); ?> </h2>
             <h3>Brought to you by <?php echo get_post_meta( get_the_ID(), '_sempres', true); ?> </h3>
-            <h4>Date: <?php echo get_post_meta( get_the_ID(), '_semdate', true); ?> 
-            Time: <?php echo get_post_meta( get_the_ID(), '_semtime', true); ?> </h4>
-            <p><?php echo get_the_content(); ?></p>
+            <h4>Date: <?php echo get_post_meta( get_the_ID(), '_semdate', true); ?></h4>
+            <h4>Time: <?php echo get_post_meta( get_the_ID(), '_semtime', true); ?></h4>
+			<h4>Location: <?php echo get_post_meta( get_the_ID(), '_semloc', true); ?></h4>
+			<a class="semToggle" href="#" onclick="return false;">Show/Hide Details</a>
+            <p class="semDetails" style="display:none;"><?php echo get_the_content(); ?></p>
 		</div>
     <?php endwhile; ?>
 	</div>
