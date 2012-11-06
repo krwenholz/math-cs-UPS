@@ -30,12 +30,8 @@
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600' rel='stylesheet' type='text/css'>
         <!-- <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/style.css" /> -->
 		
-		<!-- Responsive Tables -->
-		<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive-tables.css" />
-		<script type='text/javascript' src="<?php echo get_template_directory_uri(); ?>/js/responsive-tables.js"></script>
-		
 		<!-- Scripts -->
-		<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js?ver=1.3.2'></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 		<?php if (is_home()): ?>
 		<script type='text/javascript' src="<?php echo get_template_directory_uri(); ?>/js/jcarousellite_1.0.1.min.js"></script>
 		<script>
@@ -60,6 +56,10 @@
 			});
 		</script>
 		<?php endif; ?>
+		
+		<!-- Zurb Responsive Tables -->
+		<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive-tables.css" />
+		<script type='text/javascript' src="<?php echo get_template_directory_uri(); ?>/js/responsive-tables.js"></script>
 			
 		<!-- drop Google Analytics Here -->
 		<!-- end analytics -->
