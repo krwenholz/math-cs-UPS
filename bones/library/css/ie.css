@@ -49,4 +49,4 @@ footer nav ul li a, footer nav ul li a:visited { color:#434343; text-decoration:
 footer nav ul li:after { content:"|"; margin-left:5px; }
 footer nav ul li:last-child:after { content:""; }
 
-table, tr, td { border-color:gray; }
+table, tr, td , th { border-color:gray; }
