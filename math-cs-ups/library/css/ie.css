@@ -6,21 +6,23 @@ IE 8 and below don't support @media queries, so we're going vanilla here
 header { padding:75px 0 20px 0; width:100%; text-align:center; }
 header#page-head { padding:20px 0; }
 #splash { min-height:400px; }
-#slider { width:100% !important; height:300px; margin-bottom:20px; overflow:hidden; }
+#slider { width:100% !important; height:300px; margin-bottom:20px; overflow:hidden; background:#999; }
 #page-content { min-height:600px; width:70%; margin:10px auto; }
 #news-pos { width:100%; height:100%; float:left; }
 #news { margin:0 auto; padding:45px 20px; position:relative; left:226px; height:100%; width:260px; opacity:0.8; background:#333; z-index:5; }
 .news-item { padding-bottom:20px; }
-footer { width:100%; margin-bottom:40px; }
+footer { width:100%; }
 footer nav { margin-top:10px; }
+#beta { border:1px dashed; border-radius:50px; position:absolute; right:15px; top:15px; height:65px; width:65px; line-height:60px; font-size:30px; color:maroon; box-shadow: 0 0 15px maroon; opacity:0.33; -webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); -ms-transform: rotate(45deg); -o-transform: rotate(45deg); }
 
 /* Typography */
-header h2 { letter-spacing:2px; color:#434343; font-family: 'Open Sans', sans-serif; font-weight:400; text-transform:uppercase; text-decoration:none; font-size:14px; }
-header h1 { letter-spacing: 4px; font-family: 'Open Sans', sans-serif; font-weight:600; text-transform:uppercase; font-size:18px; color:#000; }
+header h2 { letter-spacing:2px; color:#434343; font-family: 'Open Sans', sans-serif; font-weight:400; text-transform:uppercase; text-decoration:none; font-size:1.5em; }
+header h1 { letter-spacing: 4px; font-family: 'Open Sans', sans-serif; font-weight:600; text-transform:uppercase; font-size:2em; color:#000; }
 .page header h1 { border-bottom:1.5px inset #999; }
 section nav ul li a, header nav ul li a { font-size:24px; letter-spacing:1px; text-decoration:none; color:#434343; font-family: 'Open Sans', sans-serif; -webkit-transition:color 0.75s; -mos-transition:color 0.75s; -o-transition:color 0.75s; -ms-transition:color 0.75s; transition:color 0.75s; }
 section nav ul li a:hover, header nav ul li a:hover, section nav ul li a:focus, header nav ul li a:focus { color:#800000; }
 a , a:visited { color:#434343; }
+.current-menu-item a { color:#800000; }
 .news-item { color:#fff; font-size:16px; }
 .news-item .title { font-weight:bold; }
 .news-item .time { font-style:italic; }
@@ -35,13 +37,13 @@ section nav, footer { text-align:center; }
 .prof h2 { font-family:Georgia, serif; color:#000; }
 .profButton { margin-bottom:10px; text-decoration:none; border:1px solid #dedede; border-right:1px solid #bbb; border-bottom:1px solid #bfbfbf; padding:5px 10px 6px 10px; cursor:pointer; font-size:15px; line-height:130%; color:#fff; -webkit-border-radius:11px; -moz-border-radius:11px; border-radius:11px; display:inline-block; overflow:visible; width:auto; background:#999; }
 
-#beta { border:1px dashed; border-radius:50px; position:absolute; right:10px; top:10px; height:65px; width:65px; line-height:60px; font-size:30px; color:maroon; box-shadow: 0 0 15px maroon; opacity:0.33; -webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); -ms-transform: rotate(45deg); -o-transform: rotate(45deg); }
-.seminars { padding: 10px; border:1px solid #888; margin: 15px 0; border-radius: 25px; box-shadow: 0 0 10px black; }
+/* Seminar Page */
+.seminars { padding: 10px; border:1px solid #888; margin: 15px 0; border-radius: 25px; box-shadow: 0 0 10px black; width:100%; }
+.seminars h2 { border-bottom:1px inset #999; }
+.seminars p.semData { font-style:italic; display:inline-block; margin-right:10px; }
+.seminars p.semDetails { margin-top:8px; }
 
-header h2 { font-size:1.5em; }
-header h1 { font-size:2em; }
-#news { left:226px; }
-
+/* Nav Styles */
 section nav ul li, header nav ul li { display:inline; margin:0 30px; background: transparent; border: 0; border-radius:0; }
 footer { background:transparent; color:#434343; padding:0; }
 footer nav ul li { display:inline; margin:0 1px; width:auto; }
