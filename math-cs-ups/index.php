@@ -3,19 +3,14 @@
 	<div id="slider">
 		<div id="news-pos">
 			<div id="news">
-					<div class="news-item">
-						<p class="title">Professors Akers & Sawin prepare for departure</p>
-							<p class="time">April 3rd, 2012</p>
-					</div>
-					<div class="news-item">
-						<p class="title">Computer Science debuts capstone contract major</p>
-							<p class="time">April 4th, 2012</p>
-					</div>
-					<div class="news-item">
-						<p class="title">Mathematics hires two new professors</p>
-							<p class="time">April 5th, 2012</p>
-					</div>
-				</div>
+				<p>Welcome to the Mathematics and Computer Science department at the
+					<a href="http://pugetsound.edu">University of Puget Sound</a>. Our
+					department offers courses in statistics, calculus, computer
+					programming and many other topics.  Majors and minors are offered
+					for both Mathematics and Computer Science, along with an
+					interdisciplinary degree in Computer Science and Business.
+				</p>
+			</div>
 		</div>
 		<ul>
 			<li><img src="<?php echo get_template_directory_uri(); ?>/images/old_school.png" width="525" height="300"></li>
