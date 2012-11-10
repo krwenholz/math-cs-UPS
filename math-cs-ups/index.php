@@ -2,14 +2,16 @@
 <section id="splash">
 	<div id="slider">
 		<div id="news-pos">
-			<div id="news">
-				<p>Welcome to the Mathematics and Computer Science department at the
-					<a href="http://pugetsound.edu">University of Puget Sound</a>. Our
+            <div id="news">
+                <div class="news-item">
+				<p class="title">Welcome to the Mathematics and Computer Science department at the
+					<a style="color:#99CCFF;" href="http://pugetsound.edu">University of Puget Sound</a>. Our
 					department offers courses in statistics, calculus, computer
 					programming and many other topics.  Majors and minors are offered
 					for both Mathematics and Computer Science, along with an
-					interdisciplinary degree in Computer Science and Business.
-				</p>
+                    interdisciplinary degree in Computer Science and Business.
+                </p>
+                </div>
 			</div>
 		</div>
 		<ul>
