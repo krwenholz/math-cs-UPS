@@ -310,8 +310,10 @@ function cs_seminar_posttype() {
             ),
             'public' => true,
             'supports' => array( 'title', 'editor', 'custom-fields' ),
+			'has_archive' => true,
             'capability_type' => 'post',
-            'rewrite' => array("slug" => "seminar"), // Permalinks format
+			'rewrite' => array("slug" => "seminar"), // Permalinks format
+            //'rewrite' => array("slug" => "past-seminars"), // Permalinks format
             'menu_position' => 5,
             'register_meta_box_cb' => 'add_seminar_metaboxes'
         )
@@ -404,6 +406,13 @@ function sem_custom_columns( $column, $post_id ) {
 }
 
 add_action( "manage_posts_custom_column", "sem_custom_columns", 10, 2 );
+
+//Seminar posts per page fix (fixes conflict with "Blog pages show at most" global setting)
+function seminar_posts_per_page( $query ) {  
+    if ( $query->query_vars['post_type'] == 'seminar' ) $query->query_vars['posts_per_page'] = 5;  
+    return $query;  
+}  
+if ( !is_admin() ) add_filter( 'pre_get_posts', 'seminar_posts_per_page' ); 
 
 /**
  * Adds a jQuery datepicker script to seminar pages.

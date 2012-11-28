@@ -28,7 +28,6 @@
 		
 		<!-- Styles -->
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600' rel='stylesheet' type='text/css'>
-        <!-- <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/style.css" /> -->
 		
 		<!-- Scripts -->
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -49,7 +48,7 @@
 		<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.quicksand.js"></script>
 		<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/prof-script.js"></script>
 		<?php endif; ?>
-		<?php if (is_page_template('page-seminars.php') ): ?>
+		<?php if (is_page_template('page-seminars.php') || is_post_type_archive('seminar') ): ?>
 		<script>
 			$(function() {
 				$(".semToggle").click(function() {$(this).parent().children(".semDetails").slideToggle("fast");});
