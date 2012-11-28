@@ -1,5 +1,5 @@
 <footer>
-	<p>&copy;2012 University of Puget Sound</p>
+	<p>&copy;2012 <a href="http://pugetsound.edu">University of Puget Sound</a></p>
 	<p>Mathematics &amp; Computer Science</p>
 	<nav role="navigation">
 		<?php bones_footer_links(); ?>
