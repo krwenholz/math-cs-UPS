@@ -1,43 +1,6 @@
 <?php get_header(); ?>
-			
-			<div id="content">
-
-				<div id="inner-content" class="wrap clearfix">
-			
-					<div id="main" class="eightcol first clearfix" role="main">
-
-						<article id="post-not-found" class="hentry clearfix">
-						
-							<header class="article-header">
-							
-								<h1><?php _e("Epic 404 - Article Not Found", "bonestheme"); ?></h1>
-						
-							</header> <!-- end article header -->
-					
-							<section class="entry-content">
-							
-								<p><?php _e("The article you were looking for was not found, but maybe try looking again!", "bonestheme"); ?></p>
-					
-							</section> <!-- end article section -->
-
-							<section class="search">
-				
-							    <p><?php get_search_form(); ?></p>
-				
-							</section> <!-- end search section -->
-						
-							<footer class="article-header">
-							
-							    <p><?php _e("This is the 404.php template.", "bonestheme"); ?></p>
-							
-							</footer> <!-- end article footer -->
-					
-						</article> <!-- end article -->
-			
-					</div> <!-- end #main -->
-
-				</div> <!-- end #inner-content -->
-    
-			</div> <!-- end #content -->
-
+<section id="page-content">
+	<h2 style="text-align:center;">404 - Page Not Found</h2>
+	<h3 style="text-align:center;">The page you're looking for doesn't seem to exist. <a href="<?php bloginfo('siteurl'); ?>" style="text-decoration:underline;">Return to the homepage</a></h3>
+</section>
 <?php get_footer(); ?>

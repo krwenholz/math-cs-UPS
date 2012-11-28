@@ -15,7 +15,7 @@ Template Name: Faculty Page
 	</div>
 	<div class="prof-list">
 	<?php
-    $mypost = array( 'post_type' => 'faculty', 'meta_key'=>'_lname', 'orderby' => 'meta_value', 'order' => 'ASC' );
+    $mypost = array( 'post_type' => 'faculty','posts_per_page' => -1, 'meta_key'=>'_lname', 'orderby' => 'meta_value', 'order' => 'ASC' );
     $loop = new WP_Query( $mypost );
     ?>
     <?php while ( $loop->have_posts() ) : $loop->the_post();?>

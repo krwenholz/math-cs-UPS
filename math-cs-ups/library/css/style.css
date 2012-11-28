@@ -1020,6 +1020,8 @@ section nav, footer { text-align:center; }
 .seminars h2 { border-bottom:1px inset #999; }
 .seminars p.semData { font-style:italic; display:inline-block; margin-right:10px; }
 .seminars p.semDetails { margin-top:8px; }
+#pagination { width:100%; margin:0 auto; height:50px; }
+#pagination .rightLink, #pagination .leftLink { text-align:center; margin:5px; }
 
 /*********************
 NAVIGATION STYLES
@@ -1436,8 +1438,8 @@ footer nav ul li { display:block; margin:0 1px; }
 footer { background:#000; color:#fff; padding:10px 0; }
 footer nav ul li { display: inline-block; margin: 0 1px; width: 25%; }
 footer nav ul li a, footer nav ul li a:visited { color:#fff; text-decoration:underline; }
-/*footer nav ul li:after { content:"|"; margin-left:5px; }
-footer nav ul li:last-child:after { content:""; }*/
+#pagination .rightLink { float:right; text-align:right; margin:0; }
+#pagination .leftLink { float:left; text-align:left; margin:0; }
   
   /*********************
   POSTS & CONTENT STYLES
@@ -1523,6 +1525,7 @@ footer nav ul li a, footer nav ul li a:visited { color:#434343; text-decoration:
 footer nav ul li:after { content:"|"; margin-left:5px; }
 footer nav ul li:last-child:after { content:""; }
 .seminars { width:70%; margin:10px auto; }
+#pagination { width:50%; }
 
   /*********************
   SIDEBARS & ASIDES
