@@ -15,12 +15,11 @@
 			</div>
 		</div>
 		<ul>
-			<li><img src="<?php echo get_template_directory_uri(); ?>/images/old_school.png" width="525" height="300"></li>
-			<li><img src="<?php echo get_template_directory_uri(); ?>/images/court.png" width="525" height="300"></li>
-			<li><img src="http://placekitten.com/525/300" width="525" height="300"></li>
-			<li><img src="<?php echo get_template_directory_uri(); ?>/images/wires.png" width="525" height="300"></li>
-			<li><img src="http://placepuppy.it/525/300" width="525" height="300"></li>
-			<li><img src="http://placehold.it/525x300" width="525" height="300"></li>
+			<li><img src="<?php echo get_template_directory_uri(); ?>/images/fibonacci-spiral.png" width="525" height="300"></li>
+			<li><img src="<?php echo get_template_directory_uri(); ?>/images/kalman-filter.png" width="525" height="300"></li>
+			<li><img src="<?php echo get_template_directory_uri(); ?>/images/Mandelbrot.png" width="525" height="300"></li>
+			<li><img src="<?php echo get_template_directory_uri(); ?>/images/PCGraphics.png" width="525" height="300"></li>
+			<li><img src="<?php echo get_template_directory_uri(); ?>/images/tree.png" width="525" height="300"></li>
 		</ul>
 	</div>
 	<nav role="navigation">
