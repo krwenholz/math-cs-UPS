@@ -72,7 +72,6 @@
 		<!-- <div id="container"> -->
 			
 		<header class="header" role="banner">
-			<div id="beta">&isin; &beta;</div>
 			<h2><?php bloginfo('description'); ?></h2>
             <h1><?php bloginfo('name'); ?></h1>
 			<?php if(!is_home()): ?>
