@@ -15,11 +15,11 @@
 			</div>
 		</div>
 		<ul>
-			<li><img src="<?php echo get_template_directory_uri(); ?>/images/fibonacci-spiral.png" width="525" height="300"></li>
-			<li><img src="<?php echo get_template_directory_uri(); ?>/images/kalman-filter.png" width="525" height="300"></li>
-			<li><img src="<?php echo get_template_directory_uri(); ?>/images/Mandelbrot.png" width="525" height="300"></li>
-			<li><img src="<?php echo get_template_directory_uri(); ?>/images/PCGraphics.png" width="525" height="300"></li>
-			<li><img src="<?php echo get_template_directory_uri(); ?>/images/tree.png" width="525" height="300"></li>
+			<li><img src="<?php echo get_template_directory_uri(); ?>/images/cat-euler.png" width="525" height="300"></li>
+			<li><img src="<?php echo get_template_directory_uri(); ?>/images/mandelbrot.png" width="525" height="300"></li>
+			<li><img src="<?php echo get_template_directory_uri(); ?>/images/Thompson.png" width="525" height="300"></li>
+			<li><img src="<?php echo get_template_directory_uri(); ?>/images/douglas_engelbart.png" width="525" height="300"></li>
+			<li><img src="<?php echo get_template_directory_uri(); ?>/images/svm_hyperplanes.png" width="525" height="300"></li>
 		</ul>
 	</div>
 	<nav role="navigation">
