@@ -15,11 +15,11 @@
 			</div>
 		</div>
 		<ul>
-			<li><img src="<?php echo get_template_directory_uri(); ?>/images/cat-euler.png" width="525" height="300"></li>
-			<li><img src="<?php echo get_template_directory_uri(); ?>/images/mandelbrot.png" width="525" height="300"></li>
-			<li><img src="<?php echo get_template_directory_uri(); ?>/images/Thompson.png" width="525" height="300"></li>
-			<li><img src="<?php echo get_template_directory_uri(); ?>/images/douglas_engelbart.png" width="525" height="300"></li>
-			<li><img src="<?php echo get_template_directory_uri(); ?>/images/svm_hyperplanes.png" width="525" height="300"></li>
+			<li><img src="<?php echo get_template_directory_uri(); ?>/images/harned_back.jpg" width="525" height="300"></li>
+			<li><img src="<?php echo get_template_directory_uri(); ?>/images/lab.jpg" width="525" height="300"></li>
+			<li><img src="<?php echo get_template_directory_uri(); ?>/images/harned_front.jpg" width="525" height="300"></li>
+			<li><img src="<?php echo get_template_directory_uri(); ?>/images/study.jpg" width="525" height="300"></li>
+			<li><img src="<?php echo get_template_directory_uri(); ?>/images/opp.jpg" width="525" height="300"></li>
 		</ul>
 	</div>
 	<nav role="navigation">
