@@ -11,7 +11,7 @@
 			$loop = new WP_Query($args);
 			$loop->set( 'posts_per_page', 5 );
 			?>
-			<?php if (have_posts()) : while ( $loop->have_posts() ) : $loop->the_post(); ?>
+			<?php if ($loop->have_posts()) : while ($loop->have_posts()) : $loop->the_post(); ?>
 				<?php
 				$sem_date = get_post_meta( get_the_ID(), '_semdate', true);
 				$sem_time = get_post_meta( get_the_ID(), '_semtime', true);
@@ -42,18 +42,7 @@
 					<div class="leftLink"><?php previous_posts_link('&larr; Later Seminars', $loop->max_num_pages) ?></div>
 				</div>
 			<?php else : ?>
-		
-				<article id="post-not-found" class="hentry clearfix">
-					<header class="article-header">
-						<h1><?php _e("Oops, Post Not Found!", "bonestheme"); ?></h1>
-					</header>
-					<section class="entry-content">
-						<p><?php _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?></p>
-					</section>
-					<footer class="article-footer">
-						<p><?php _e("This is the error message in the custom posty type archive template.", "bonestheme"); ?></p>
-					</footer>
-				</article>
+				<p style="text-align:center; font-style:italic;">No past seminars were found. Please check back soon!</p>
 			<?php endif; ?>
 		</div>
 	</section>

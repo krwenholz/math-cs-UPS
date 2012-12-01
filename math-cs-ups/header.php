@@ -48,7 +48,7 @@
 		<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.quicksand.js"></script>
 		<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/prof-script.js"></script>
 		<?php endif; ?>
-		<?php if (is_page_template('page-seminars.php') || is_post_type_archive('seminar') ): ?>
+		<?php if (is_page_template('page-upcoming_seminars.php') || is_post_type_archive('seminar') ): ?>
 		<script>
 			$(function() {
 				$(".semToggle").click(function() {$(this).parent().children(".semDetails").slideToggle("fast");});
