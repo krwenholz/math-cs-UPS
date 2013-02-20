@@ -36,12 +36,16 @@ button inside of the "Publish" box to the right hand side.
 
 ## Editing the Page Layouts
 TODO: Discuss the pages you can edit from WordPress
+
 TODO: Discuss the pages you need to edit PHP for
 
 # Some Implementation Details
 TODO: Discuss the use of Bones
+
 TODO: Discuss the WordPress version?
+
 TODO: Discuss how the PHP files work/are organized (briefly)
 
 # A Quick and Dirty Installation
 TODO: Quick recipe for how to get this whole shebang working.
+
