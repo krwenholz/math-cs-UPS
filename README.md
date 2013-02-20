@@ -1,5 +1,5 @@
-math-cs-UPS
-===========
+[Mathematics and Computer Science at UPS](mathcs.pugetsound.edu)
+================================================================
 
 Hosting the testing and development of Puget Sound's Math/CS department site.
 
