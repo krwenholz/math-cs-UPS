@@ -38,6 +38,7 @@ button inside of the "Publish" box to the right hand side.
 TODO: Discuss the pages you can edit from WordPress
 
 TODO: Discuss the pages you need to edit PHP for
+TODO: How do you update the theme?  EXPLICITLY (buttons and such)
 
 # Some Implementation Details
 TODO: Discuss the use of Bones
