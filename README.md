@@ -59,10 +59,16 @@ We used the [Bones Development Theme](http://themble.com/bones/) as a starting p
 ### WordPress Version
 This theme was developed for and tested on WordPress version 3.5.1. Any subsequent version updates should be tested on a separate instance of WordPress to ensure compatibility before making the update on the live site.
 
-TODO: Discuss how the PHP files work/are organized (briefly)
+### Anatomy of a WordPress Theme
 
-- [ ] @krwenholz can you explain a little about what you're looking for here? Do you want a breakdown of the important PHP files in the theme directory, or a general overview of WOrdPress theme structure? Or something else?
+For a great introduction to the stucture of a WordPress theme, see [this infographic](http://yoast.com/wordpress-theme-anatomy/) by the fine folks at Yoast. This will give you a good idea of the basics.
+
+Our theme goes a couple of steps further by using [Custom Post Types](http://codex.wordpress.org/Post_Types#Custom_Post_Types) to allow users to enter Faculty and Seminar data, and then using [Custom Page Templates](http://codex.wordpress.org/Pages#Creating_Your_Own_Page_Templates) to display these custom posts in a particular way.
 
 # A Quick and Dirty Installation
-TODO: Quick recipe for how to get this whole shebang working.
+
+This theme can be installed in any instance of WordPress by copying the `math-cs-ups` theme directory and all its contents to the WordPress `themes` directory via FTP:
+
+* Navigate to the theme directory within WordPress: `/path/to/wordpress/wp-content/themes`
+* Copy (or overwrite if you're updating the theme) the `math-cs-ups` directory and its contents here
 
