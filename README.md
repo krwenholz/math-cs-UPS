@@ -35,17 +35,33 @@ Once you have filled in the appropriate information, click the "Publish"
 button inside of the "Publish" box to the right hand side.
 
 ## Editing the Page Layouts
-TODO: Discuss the pages you can edit from WordPress
+Currently, the Tutoring and Academics pages can be edited through the WordPress backend by clicking the Pages menu item and selecting one of these pages.
 
-TODO: Discuss the pages you need to edit PHP for
-TODO: How do you update the theme?  EXPLICITLY (buttons and such)
+The Home, Faculty, and Seminar pages are all specialized enough that their layouts are specified in specifice PHP files in within the theme (all located at the root theme directory level). Below is a last of the specific file(s) which must be edited in order to change the page layout. Not that accompanying CSS changes may also be necessary, depending on the type of layout change desired.
+
+* Home Page = index.php
+* Faculty Page = page-faculty.php
+* Seminar Pages
+  * Current/Upcoming Seminars = page-upcoming_seminars.php
+  * Past Seminars = archive-seminar.php
+
+All theme updates should be managed through this GitHub repo, and tested on a separate instance of WordPress before being installed on the live site. Once the updates have been tested and approved, the updated theme directory can be uploaded via FTP:
+
+* Navigate to the theme directory within WordPress: `/path/to/wordpress/wp-content/themes`
+* Overwrite the contents of the `math-cs-ups` directory with the updated theme files
+
+Themes can also be updated via the WordPress backend, but the process is slightly complicated due to the fact that we're running WordPress in multisite mode. More info here about administration of themes and other elements for WordPress Multisite: http://codex.wordpress.org/Multisite_Network_Administration#Themes
 
 # Some Implementation Details
-TODO: Discuss the use of Bones
+### Bones Development Theme
+We used the [Bones Development Theme](http://themble.com/bones/) as a starting point for our theme. It provided a mobile-first and responsive "bare bones" starting point, which allowed us to focus fully on designing the site and avoid all the setup pieces required in creating a new WOrdPress theme.
 
-TODO: Discuss the WordPress version?
+### WordPress Version
+This theme was developed for and tested on WordPress version 3.5.1. Any subsequent version updates should be tested on a separate instance of WordPress to ensure compatibility before making the update on the live site.
 
 TODO: Discuss how the PHP files work/are organized (briefly)
+
+- [ ] @krwenholz can you explain a little about what you're looking for here? Do you want a breakdown of the important PHP files in the theme directory, or a general overview of WOrdPress theme structure? Or something else?
 
 # A Quick and Dirty Installation
 TODO: Quick recipe for how to get this whole shebang working.
